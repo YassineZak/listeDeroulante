@@ -5,7 +5,7 @@ include_once "Manager.php";
 require_once __DIR__.'/../vendor/autoload.php';
 if (isset($_GET['id'])){
     $bdd = new Manager();
-    $results = $bdd->query("SELECT * FROM V_JATO WHERE VERSION =:version LIMIT 10", array("version" => $_GET['id']));
+    $results = $bdd->query("SELECT MOTORISATION, CO2 FROM V_JATO WHERE VERSION =:version LIMIT 10", array("version" => $_GET['id']));
     if (empty($results)){
         $return = array('error' => "aucun modele disponible");
     }

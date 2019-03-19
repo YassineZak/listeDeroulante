@@ -29,11 +29,11 @@ $autos = $bdd->query('SELECT * FROM V_JATO GROUP BY marque LIMIT 10');
         <option value="0">Modele</option>
 </select>
 <label for="version">version</label>
-<select id=version  name="version" data-target="motorisation" data-url="others.php" class="ajaxList">
+<select id=version  name="version" data-target="motorisation, #CO2" data-url="others.php" class="ajaxList">
     <option value="0">version</option>
 </select>
 <label for="motorisation">motorisation</label>
-<select id="motorisation"  name="motorisation">
+<select id="motorisation"  name="motorisation" data-target="CO2" data-url="others.php" class="ajaxList">
     <option value="dog">Dog</option>
 </select>
 <label for="CO2">CO2</label>
