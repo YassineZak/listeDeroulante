@@ -5,9 +5,9 @@ include_once "Manager.php";
 require_once __DIR__.'/../vendor/autoload.php';
 if (isset($_GET['id'])){
     $bdd = new Manager();
-    $results = $bdd->query("SELECT MODELE FROM V_JATO WHERE MARQUE =:marque GROUP BY MODELE LIMIT 10", array("marque" => $_GET['id']));
+    $results = $bdd->query("SELECT * FROM V_JATO WHERE VERSION =:version LIMIT 10", array("version" => $_GET['id']));
     if (empty($results)){
-        $return = array('error' => "aucune marque disponible");
+        $return = array('error' => "aucun modele disponible");
     }
     else{
         $return = array(
@@ -17,6 +17,6 @@ if (isset($_GET['id'])){
     }
 
 }else{
-    $return = array('error' => "aucune marque selectionnée");
+    $return = array('error' => "aucun modele selectionné");
 }
 die(json_encode($return));

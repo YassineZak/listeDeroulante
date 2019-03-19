@@ -2,7 +2,7 @@
 ini_set ('display_errors', 1);
 error_reporting (E_ALL | E_STRICT);
 include_once "Manager.php";
-require_once __DIR__.'/vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 $bdd = new Manager();
 $autos = $bdd->query('SELECT * FROM V_JATO GROUP BY marque LIMIT 10');
 
@@ -19,19 +19,18 @@ $autos = $bdd->query('SELECT * FROM V_JATO GROUP BY marque LIMIT 10');
 <form method="POST" action="#">
 <label for="marque">marque</label>
 <select  id="marque"  name="marque" data-target="modele" data-url="modele.php" class="ajaxList">
+    <option value="0" selected>Marque</option>
     <?php foreach ($autos as $auto): ?>
     <option value="<?=$auto->MARQUE;?>"><?=$auto->MARQUE;?></option>
     <?php endforeach; ?>
 </select>
 <label for="modele">modele</label>
-<select id="modele" name="modele" >
+<select id="modele" name="modele" data-target="version" data-url="version.php" class="ajaxList">
         <option value="0">Modele</option>
 </select>
 <label for="version">version</label>
-<select id=version  name="version">
-    <?php foreach ($autos as $auto): ?>
-        <option value="<?=$auto->VERSION;?>"><?=$auto->VERSION;?></option>
-    <?php endforeach; ?>
+<select id=version  name="version" data-target="motorisation" data-url="others.php" class="ajaxList">
+    <option value="0">version</option>
 </select>
 <label for="motorisation">motorisation</label>
 <select id="motorisation"  name="motorisation">
@@ -43,9 +42,8 @@ $autos = $bdd->query('SELECT * FROM V_JATO GROUP BY marque LIMIT 10');
 </select>
 <input type="submit" name="Envoyer" value="Envoyer">
 </form>
-<?php dump($_POST); ?>
 <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="../js/app.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
