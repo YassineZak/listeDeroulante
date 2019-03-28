@@ -2,7 +2,7 @@
 ini_set ('display_errors', 1);
 error_reporting (E_ALL | E_STRICT);
 include_once "Manager.php";
-require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/vendor/autoload.php';
 $bdd = new Manager();
 $autos = $bdd->query('SELECT * FROM V_JATO GROUP BY marque LIMIT 10');
 
@@ -36,8 +36,8 @@ $autos = $bdd->query('SELECT * FROM V_JATO GROUP BY marque LIMIT 10');
 <select id="motorisation"  name="motorisation" data-target="CO2" data-url="others.php" class="ajaxList">
     <option value="dog">Dog</option>
 </select>
-<label for="CO2">CO2</label>
-<select id="CO2"  name="CO2">
+<label for="co2">CO2</label>
+<select id="co2"  name="CO2">
     <option value="dog">Dog</option>
 </select>
 <input type="submit" name="Envoyer" value="Envoyer">
